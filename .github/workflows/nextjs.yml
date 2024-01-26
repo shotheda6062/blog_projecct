@@ -24,6 +24,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env: # Or as an environment variable
+   NOTION_PAGE_ID: ${{ evn.NOTION_PAGE_ID }}
+
 jobs:
   # Build job
   build:
