@@ -73,8 +73,7 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: print Var
-        run: echo ${{ vars.NOTION_PAGE_ID }}
+
       - name: Create env file
         run: |
           echo "NOTION_PAGE_ID=${{ vars.NOTION_PAGE_ID }}" > .env.local
