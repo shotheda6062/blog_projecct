@@ -75,6 +75,8 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: print vars
+        run: ${{ vars.NOTION_PAGE_ID }}
       - name: Build with Next.js
         run: echo ${{ vars.NOTION_PAGE_ID }}
              ${{ steps.detect-package-manager.outputs.runner }} next build
