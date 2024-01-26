@@ -24,14 +24,15 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-env: # Or as an environment variable
-   NOTION_PAGE_ID: ${{ evn.NOTION_PAGE_ID }}
+
 
 jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
     steps:
+      - env: # Or as an environment variable
+         NOTION_PAGE_ID: ${{ evn.NOTION_PAGE_ID }}
       - name: Checkout
         uses: actions/checkout@v4
       - name: Detect package manager
