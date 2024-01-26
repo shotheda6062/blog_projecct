@@ -31,8 +31,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - env: # Or as an environment variable
-         NOTION_PAGE_ID: ${{ evn.NOTION_PAGE_ID }}
       - name: Checkout
         uses: actions/checkout@v4
       - name: Detect package manager
@@ -78,7 +76,8 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        run: echo ${{ evn.NOTION_PAGE_ID }}
+             ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Static HTML export with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next export
       - name: Upload artifact
