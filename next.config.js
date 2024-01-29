@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
 
  // Add basePath
-  basePath: '/blog_projecct',
+  basePath: 'blog_projecct/',
 
 }
 
